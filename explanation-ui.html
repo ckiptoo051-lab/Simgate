@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimGate Gateway - Simple Explanation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9f7 0%, #e0f7f4 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.1);
+            border-left: 5px solid #10b981;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #10b981;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .how-it-works h2 {
+            color: #10b981;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 auto 15px;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .step h3 {
+            color: #10b981;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.9em;
+        }
+
+        /* Installation Section */
+        .installation {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 15px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .installation h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .installation-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .install-step {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .install-step h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .install-step p {
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .install-step ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .install-step li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        /* Permissions Section */
+        .permissions {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .permissions h2 {
+            color: #10b981;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .permission-group {
+            margin-bottom: 30px;
+        }
+
+        .permission-group h3 {
+            color: #059669;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .permission-group h3::before {
+            content: "✓";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .permission-list {
+            list-style: none;
+            margin-left: 42px;
+        }
+
+        .permission-list li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .permission-list li:last-child {
+            border-bottom: none;
+        }
+
+        .permission-list li::before {
+            content: "◆ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* API Example */
+        .api-example {
+            background: #1f2937;
+            border-radius: 15px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
+        .api-example h2 {
+            color: #10b981;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .code-block {
+            background: #111827;
+            border: 1px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #10b981;
+        }
+
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #666;
+            padding: 30px;
+            border-top: 1px solid #d1d5db;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .how-it-works h2,
+            .installation h2,
+            .permissions h2 {
+                font-size: 1.5em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Badge styles */
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .badge-secondary {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📱 SimGate Gateway</h1>
+            <p>Turn Your Android Phone Into a Powerful SMS Gateway</p>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📨</div>
+                <h3>Send & Receive SMS</h3>
+                <p>Automatically send OTPs, alerts, reminders, or bulk messages directly through your Android device.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>Auto-Reply & Templates</h3>
+                <p>Configure smart auto-replies, use professional rules, and leverage AI-powered responses with reusable templates.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Advanced Messaging</h3>
+                <p>Schedule SMS, manage drafts, resend failed messages, and handle bulk messaging with ease.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>Developer Friendly</h3>
+                <p>Access Device API, webhooks, queue management, and comprehensive analytics for your application.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📡</div>
+                <h3>Device Monitoring</h3>
+                <p>Real-time battery, signal, and SIM status reporting to your backend system.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Reliable</h3>
+                <p>Encrypted device credentials, secure API communication, and persistent foreground service with auto-reconnect.</p>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="how-it-works">
+            <h2>🚀 How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install App</h3>
+                    <p>Download and install the SimGate APK on your Android device.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Authenticate</h3>
+                    <p>Scan QR code or enter Device ID & Token from your dashboard.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Grant Permissions</h3>
+                    <p>Allow SMS and notification permissions when prompted.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Start Gateway</h3>
+                    <p>Tap "Start Gateway" and see "Connected ✓" status.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Send SMS</h3>
+                    <p>Send SMS through your backend API or app interface.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Track Status</h3>
+                    <p>Monitor delivery status, logs, and device health in real-time.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Installation Guide -->
+        <div class="installation">
+            <h2>📥 Installation Guide</h2>
+            <div class="installation-steps">
+                <div class="install-step">
+                    <h4>1️⃣ Download APK</h4>
+                    <p>Get the latest signed APK from the Releases section on GitHub.</p>
+                </div>
+
+                <div class="install-step">
+                    <h4>2️⃣ Enable Unknown Sources</h4>
+                    <p>Go to Settings > Security > Enable "Install from Unknown Sources" if needed.</p>
+                </div>
+
+                <div class="install-step">
+                    <h4>3️⃣ Install Application</h4>
+                    <p>Open the APK file and follow the installation prompts.</p>
+                </div>
+
+                <div class="install-step">
+                    <h4>4️⃣ Launch SimGate</h4>
+                    <p>Open the app and proceed with authentication setup.</p>
+                </div>
+
+                <div class="install-step">
+                    <h4>5️⃣ Grant Permissions</h4>
+                    <p>Accept all required permissions when prompted by the app.</p>
+                </div>
+
+                <div class="install-step">
+                    <h4>6️⃣ Start Gateway</h4>
+                    <p>Tap "Start Gateway" to begin sending and receiving SMS.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Permissions -->
+        <div class="permissions">
+            <h2>🔐 Required Permissions</h2>
+            
+            <div class="permission-group">
+                <h3>Essential Permissions</h3>
+                <ul class="permission-list">
+                    <li>SEND_SMS - Send text messages via your SIM</li>
+                    <li>READ_SMS - Read incoming and sent messages</li>
+                    <li>RECEIVE_SMS - Receive incoming SMS messages</li>
+                    <li>READ_PHONE_STATE - Monitor phone status and SIM information</li>
+                    <li>POST_NOTIFICATIONS - Show app notifications (Android 13+)</li>
+                </ul>
+            </div>
+
+            <div class="permission-group">
+                <h3>Optional but Recommended</h3>
+                <ul class="permission-list">
+                    <li>Ignore Battery Optimizations - Keep app running in background</li>
+                    <li>Autostart on Boot - Automatically restart gateway on device reboot</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- API Example -->
+        <div class="api-example">
+            <h2>💻 Backend Integration Example</h2>
+            <p style="margin-bottom: 20px;">Send SMS through your backend using a simple API call:</p>
+            <div class="code-block">
+POST /send-sms HTTP/1.1<br>
+Content-Type: application/json<br>
+<br>
+{<br>
+&nbsp;&nbsp;"device_id": "dev_xxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;"device_token": "dtk_xxxxxxxxxxxxx",<br>
+&nbsp;&nbsp;"recipient": "+2547XXXXXXX",<br>
+&nbsp;&nbsp;"message": "Your OTP is 123456"<br>
+}
+            </div>
+        </div>
+
+        <!-- Highlights -->
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 style="color: #10b981; margin-bottom: 20px;">✨ Why Choose SimGate?</h2>
+            <div class="highlights" style="justify-content: center;">
+                <div class="badge">Multi-SIM Support</div>
+                <div class="badge">Encrypted Security</div>
+                <div class="badge">Auto-Reconnect</div>
+                <div class="badge">Queue Management</div>
+                <div class="badge">Real-time Logs</div>
+                <div class="badge">Developer API</div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <button class="cta-button" onclick="alert('Visit GitHub repository to download!')">📥 Download Now</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>SimGate Gateway</strong> - Your Programmable Android SMS Solution</p>
+            <p style="font-size: 0.9em; color: #999;">Built for developers, businesses, and tech enthusiasts</p>
+        </div>
+    </div>
+</body>
+</html>
