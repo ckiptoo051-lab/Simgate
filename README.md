@@ -1,149 +1,300 @@
 SimGate Gateway
 
-Android SMS Gateway for sending OTPs, verification codes, alerts, notifications, and transactional SMS using your own carrier SIM card.
+Android SMS Gateway for OTP Delivery, Verification Codes, Notifications, and Transactional SMS using your own carrier SIM card.
 
-SimGate Gateway transforms any Android phone into a programmable SMS gateway that developers can integrate with websites, mobile apps, SaaS platforms, authentication systems, and business applications.
+SimGate Gateway transforms any Android phone into a programmable SMS gateway. Developers can connect their Android device to the SimBridge platform and send SMS messages through a simple API using their own SIM card.
 
-Instead of paying expensive SMS providers, SimGate Gateway allows you to send SMS messages directly through your own Android device and carrier SIM card using a simple API.
-
-Common Use Cases
+Perfect for:
 
 - OTP SMS Verification
 - Two-Factor Authentication (2FA)
 - Login Verification Codes
-- User Registration Verification
 - Password Reset Codes
-- Transaction Alerts
-- Banking Notifications
+- User Registration Verification
+- Banking Alerts
+- Transaction Notifications
 - E-commerce Notifications
 - Appointment Reminders
-- Delivery Updates
-- Customer Support Automation
-- SMS-Based Applications
+- SMS Automation
+- Bulk Messaging
 - SMS Bots
-- Programmable SMS Services
+- Developer APIs
+
+---
+
+SimBridge Dashboard
+
+Manage your devices and generate API credentials from:
+
+https://simbridgesend.web.app
+
+The dashboard allows you to:
+
+- Create SMS Gateway Devices
+- Generate Device IDs
+- Generate Device Tokens
+- Generate API Keys
+- Monitor Device Status
+- View SMS Logs
+- Configure Webhooks
+- Create Auto Reply Rules
+- Manage Message Templates
+- Monitor Device Health
+- View Analytics
+
+---
+
+How It Works
+
+Your Website/App
+        │
+        ▼
+ SimBridge API
+        │
+        ▼
+ Android Phone
+        │
+        ▼
+ Your Carrier SIM Card
+        │
+        ▼
+ Recipient Receives SMS
+
+Instead of paying expensive SMS providers, SimGate Gateway allows you to use your own Android phone and carrier SIM card to deliver messages.
+
+---
 
 Features
 
-Android SMS Gateway
+SMS Gateway
 
-- Send SMS using your own SIM card
-- Receive incoming SMS
-- SMS delivery reporting
-- SMS failure reporting
-- SMS queue management
-- Multi-part SMS support
-- Long SMS support
-- Dual SIM support
-- Multi-SIM support
+- Send SMS through Android
+- Receive Incoming SMS
+- Delivery Reports
+- Failed Message Reports
+- SMS Queue Processing
+- Multipart SMS Support
+- Long SMS Support
+- Background Operation
 
 OTP & Authentication
 
-- Send OTP codes
-- Send verification codes
-- Registration confirmation SMS
-- Password reset SMS
-- Login authentication SMS
-- Two-factor authentication workflows
+- OTP Delivery
+- Verification Codes
+- Password Reset Codes
+- Registration Verification
+- Login Authentication
+- Two-Factor Authentication (2FA)
 
 Developer API
 
 - REST API
-- API key authentication
-- Device authentication
-- Webhook support
-- JSON API
-- Easy integration with PHP, Laravel, Node.js, Python, React, Flutter, Android, and iOS applications
+- API Key Authentication
+- Device-Based Routing
+- JSON Responses
+- Webhook Support
+- Easy Integration
 
-Messaging Features
+Compatible with:
+
+- Laravel
+- PHP
+- Node.js
+- React
+- Next.js
+- Flutter
+- Android
+- Python
+- Java
+- .NET
+
+Android Features
+
+- QR Code Pairing
+- Device Token Authentication
+- Device ID Authentication
+- Auto Reconnect
+- Auto Start on Boot
+- Foreground Service
+- Connection Monitoring
+- Local SMS History
+- Notification Controls
+- SIM Management
+- Dual SIM Support
+- Multi SIM Support
+
+Advanced Messaging
 
 - Scheduled SMS
+- SMS Drafts
+- Message Templates
 - Bulk SMS
-- SMS drafts
-- Message templates
-- Auto reply rules
-- Keyword-based responses
-- Incoming SMS forwarding
-- SMS history
+- Resend Failed SMS
+- SMS Queue Viewer
 
-Device Management
+Auto Reply System
 
-- Multiple Android devices
-- Device monitoring
-- Battery monitoring
-- Signal monitoring
-- Online/offline status
-- Device health tracking
-- Auto reconnect
-- Auto start on boot
+- Keyword Auto Reply
+- Custom Rules
+- Business Hours Reply
+- Smart Responses
+- Webhook-Based Automation
 
-Reliability
+Examples:
 
-- Foreground service
-- Automatic retries
-- Offline queue support
-- Background operation
-- Persistent connection
-- Network recovery
-- Delivery tracking
+HELP
+→ How can we assist you?
 
-How It Works
+PRICE
+→ Visit our website for pricing information.
 
-1. Install SimGate Gateway on Android.
-2. Connect your device using Device ID and Device Token.
-3. Start the gateway service.
-4. Integrate your website or application with the API.
-5. Send SMS messages through your Android phone and carrier SIM card.
-6. Receive delivery reports and incoming messages.
+JOIN
+→ Welcome to our service.
+
+Device Monitoring
+
+- Online Status
+- Offline Detection
+- Battery Monitoring
+- Signal Monitoring
+- Network Monitoring
+- Device Health Tracking
+
+---
+
+Installation
+
+1. Download APK
+
+Download the latest APK from GitHub Releases.
+
+2. Install
+
+Install the APK on an Android device running Android 7.0 or newer.
+
+3. Open SimGate Gateway
+
+Launch the application.
+
+4. Pair Device
+
+Visit:
+
+https://simbridgesend.web.app
+
+Create a device and obtain:
+
+- Device ID
+- Device Token
+
+Or scan the generated QR code.
+
+5. Grant Permissions
+
+Required:
+
+- SEND_SMS
+- RECEIVE_SMS
+- READ_SMS
+- READ_PHONE_STATE
+- POST_NOTIFICATIONS
+
+Recommended:
+
+- Disable Battery Optimization
+- Enable Auto Start
+
+6. Start Gateway
+
+Tap:
+
+Start Gateway
+
+The Android device will connect to the backend and begin processing SMS jobs.
+
+---
 
 API Example
 
-Send OTP SMS:
+Send SMS
 
 POST /send-sms
+
+Headers:
+
 Authorization: Bearer YOUR_API_KEY
 
+Request:
+
 {
-  "device_id": "dev_xxxxx",
-  "recipient": "+254700000000",
-  "message": "Your verification code is 123456"
+  "device_id":"dev_xxxxx",
+  "recipient":"+254700000000",
+  "message":"Your OTP is 123456"
 }
 
 Response:
 
 {
-  "success": true,
-  "message_id": "msg_xxxxx",
-  "status": "queued"
+  "success":true,
+  "message_id":"msg_xxxxx",
+  "status":"queued"
 }
+
+---
+
+Android Dashboard
+
+The Android application provides:
+
+Home
+
+- Gateway Status
+- Battery Level
+- Signal Strength
+- SMS Statistics
+- Device Health
+
+History
+
+- Sent Messages
+- Failed Messages
+- Incoming Messages
+
+SIM Manager
+
+- View Installed SIM Cards
+- Select Default SIM
+- Switch SIM for Sending
+
+Auto Reply
+
+- Create Auto Reply Rules
+- Enable/Disable Automation
+- Manage Templates
+
+Settings
+
+- Device Information
+- API Configuration
+- Restart Gateway
+- Unpair Device
+- Send Test SMS
+- Notification Settings
+
+---
 
 Why SimGate Gateway?
 
-- Use your own carrier SIM card
-- Send OTP SMS at low cost
+- Use your own SIM card
+- Reduce SMS costs
+- Send OTPs from Android
+- Full control of SMS infrastructure
 - No expensive SMS provider required
-- Full control of your SMS infrastructure
-- Developer-friendly API
-- Android-based SMS gateway
-- Self-hosted SMS delivery solution
-- Ideal for startups, developers, SaaS products, and businesses
+- Easy API integration
+- Reliable background operation
+- Designed for developers
 
-Android Features
-
-- QR Code Pairing
-- Device ID Authentication
-- Device Token Authentication
-- SMS Sending
-- SMS Receiving
-- Auto Reply
-- SIM Management
-- SMS Templates
-- Scheduled Messages
-- Foreground Service
-- Auto Reconnect
-- Connection Logs
-- Analytics Dashboard
-- Message History
+---
 
 Requirements
 
@@ -152,10 +303,18 @@ Requirements
 - SMS Permissions
 - Internet Connection
 
+---
+
 Keywords
 
-SMS Gateway, Android SMS Gateway, OTP SMS Gateway, Programmable SMS, SMS API, SMS Verification, Two-Factor Authentication, 2FA SMS, Verification Code SMS, Transactional SMS, Bulk SMS, SMS Automation, SMS Notifications, Android SMS API, Self Hosted SMS Gateway, SMS Server, Carrier SMS Gateway, SIM Card SMS Gateway, SMS Infrastructure, SMS Delivery Platform.
+Android SMS Gateway, SMS Gateway API, OTP SMS Gateway, SMS Verification, Verification Code SMS, Two-Factor Authentication, 2FA SMS, Transactional SMS, Bulk SMS, SMS Automation, Android SMS API, Programmable SMS, SMS Notifications, SIM Card SMS Gateway, Carrier SMS Gateway, Self Hosted SMS Gateway, SMS Infrastructure, OTP Delivery Platform, Android OTP Gateway.
+
+---
 
 License
 
-MIT License.
+MIT License
+
+---
+
+Built for developers who need affordable, programmable SMS infrastructure powered by their own Android devices and carrier SIM cards.
